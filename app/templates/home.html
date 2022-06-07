@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{%extends 'base.html'%}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token%}
+    <h1>Welcome To Home Page</h1>
+    <label>Enter Book Name</label>
+    {{form.name}}
+    <br>
+
+    <label>Enter Book Description</label>
+    {{form.description}}
+    <br>
+
+    <label>Enter Book Category</label>
+    {{form.category}}
+    <br>
+
+    <label>Enter Date</label>
+    <input type="date" value="{{form.date}}">
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
+</body>
+</html>

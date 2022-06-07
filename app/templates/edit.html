@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:500px;
+}
+</style>
+
+<form method="POST" , action="/update/{{ book.id }}" class="custom-centered">
+    {% csrf_token %}
+
+    <h2>Please Edit Data</h2>
+
+    <tr>
+        <label>Book Name</label>
+        <td><input name="name" required value="{{book.name}}">
+        </td>
+    </tr>
+    <br>
+    <tr>
+        <label>Book Description</label>
+        <td><input name="description" required value="{{book.description}}">
+        </td>
+    </tr>
+    <br>
+    <tr>
+
+    </tr>
+    <label>Category</label>
+    <select name="category" required value="{{book.category}}">
+        <option>{{book.category}}</option>
+        <option>Motivational</option>
+        <option>Biography</option>
+        <option>Autobiography</option>
+        <option>Kids</option>
+        <option>Entertainment</option>
+        <option>Other</option>
+    </select>
+
+    <br>
+    <tr>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </tr>
+
+</form>
+
+{% endblock%}
+
+</body>
+</html>

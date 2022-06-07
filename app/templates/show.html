@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+{%extends 'base.html'%}
+
+{% block content %}
+
+<style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:300px;
+}
+</style>
+
+<h1 style="text-align:center">Available Books</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+    </tr>
+    {% for book in data%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.category}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<form class="custom-centered">
+<td ><a href="/" type="submit" class="btn btn-success" >Home</a> </td>
+</form>
+{% endblock %}
+</body>
+</html>

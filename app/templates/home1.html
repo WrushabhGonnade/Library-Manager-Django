@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home1</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:300px;
+}
+</style>
+
+<h1 style="text-align:center"> Welcome to Library Management System </h1>
+<form class="custom-centered" >
+
+
+<table>
+ <td><a href="/emp_login/" type="submit" class="btn btn-success">Admin Login</a> </td>
+<br>
+ <td><a href="/c/" type="submit" class="btn btn-success">Register as Admin</a> </td>
+<br>
+ <td><a href="/display/" type="submit" class="btn btn-success">Student View</a> </td>
+</table>
+</form>
+
+{% endblock %}
+</body>
+</html>

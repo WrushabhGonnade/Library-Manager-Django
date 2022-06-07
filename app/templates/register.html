@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+{% extends 'base.html'%}
+{% block content %}
+
+<style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:300px;
+}
+</style>
+
+<h1 style="text-align:center">Welcome To Registration Page</h1>
+<form method="POST" action="/c/" class="custom-centered">
+
+    {% if messages %}
+                    {% for message in messages %}
+                        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                    {% endfor %}
+    {% endif %}
+
+    {% csrf_token%}
+
+    <label>Enter Email</label>
+
+    <div class="">
+        <input class="form-control" type="email" name="email" id="email" placeholder="email">
+    </div>
+
+    <br>
+
+    <label>Enter Full Name</label>
+    <div class="">
+        <input class="form-control" type="text" name="fname" id="fname" placeholder="Full Name">
+    </div>
+
+    <br>
+
+    <label>Enter Password</label>
+    <div class="">
+        <input class="form-control" type="text" name="passwd" id="passwd" placeholder="passwd">
+    </div>
+    <br>
+
+    <br>
+
+
+    <button type="submit" class="btn btn-success">Register</button>
+
+
+    <td><a href="/emp_login" type="submit" class="btn btn-success">Login</a> </td>
+    <td><a href="/" type="submit" class="btn btn-success" >Home</a> </td>
+
+</form>
+{% endblock %}
+</body>
+</html>

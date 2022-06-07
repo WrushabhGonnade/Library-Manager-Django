@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+</head>
+<body>
+{%extends 'base.html'%}
+
+{% block content %}
+<style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:300px;
+}
+</style>
+
+
+
+<h1 style="text-align:center">Admin Control Panel</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th colspan="2" style="text-align:center">Action</th>
+    </tr>
+    {% for book in data%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.category}}</td>
+
+        <td><a href="/edit/{{ book.id }}" type="submit" class="btn btn-success">Update</a> </td>
+
+        <td><a href="/delete/{{ book.id }}" onclick="return confirm('Are you sure you want to delete the '+'{{book.name}}'+' Record')" type="submit" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<form class="custom-centered">
+
+<td><a href="/emp_login" onclick="return confirm('Are you sure you want to log out')" type="submit" class="btn btn-danger">Log Out</a> </td>
+<td><a href="/add" type="submit" class="btn btn-danger">Add New Book</a> </td>
+
+</form>
+{% endblock %}
+</body>
+</html>
